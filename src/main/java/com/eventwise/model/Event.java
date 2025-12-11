@@ -10,31 +10,59 @@ import java.time.LocalDate;
  */
 public class Event {
 
-    /**
-     * Unique identifier for the event.
-     */
     private long id;
-
-    /**
-     * Name of the event.
-     */
     private String name;
-
-    /**
-     * Date when the event will take place.
-     * Should not be set to a past date.
-     */
     private LocalDate date;
-
-    /**
-     * Location of the event.
-     */
     private String location;
-
-    /**
-     * Maximum number of attendees allowed.
-     */
     private int maxAttendees;
+    public Event() {
+    }
+    public Event(long id, String name, LocalDate date, String location, int maxAttendees) {
+        this.id = id;
+        this.name = name;
+        this.date = date;
+        this.location = location;
+        this.maxAttendees = maxAttendees;
+    }
+    public long getId() {
+        return id;
+    }
 
-    // Constructors and methods will be added later
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public LocalDate getDate() {
+        return date;
+    }
+    public void setDate(LocalDate date) {
+        this.date = date;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public int getMaxAttendees() {
+        return maxAttendees;
+    }
+
+    public void setMaxAttendees(int maxAttendees) {
+        this.maxAttendees = maxAttendees;
+    }
 }
+
+
+
