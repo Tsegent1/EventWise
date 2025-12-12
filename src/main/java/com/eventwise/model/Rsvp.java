@@ -1,39 +1,57 @@
 package com.eventwise.model;
 
 /**
- * Links an attendee to an event with a specific RSVP status.
+ * Represents a single RSVP entry for an event.
+ * Links one attendee to one event with a status and optional notes.
  */
 public class Rsvp {
 
-    // Unique identifier for the RSVP record
+    /**
+     * Unique identifier for this RSVP.
+     */
     private long id;
 
-    // The event this RSVP belongs to
-    private long eventId;
+    /**
+     * The event that the attendee is responding to.
+     */
+    private Event event;
 
-    // The attendee who made this RSVP
-    private long attendeeId;
+    /**
+     * The attendee who is responding.
+     */
+    private Attendee attendee;
 
-    // Current status of the RSVP
+    /**
+     * Current RSVP status (for example: PENDING, CONFIRMED, DECLINED).
+     */
     private RsvpStatus status;
 
     /**
+     * Extra notes (for example: “Vegetarian meal”, “Bringing a guest”).
+     */
+    private String notes;
+
+    // ---------------- Constructors ----------------
+
+    /**
      * No-argument constructor.
+     * Allows us to create an empty Rsvp and set fields later with setters.
      */
     public Rsvp() {
     }
 
     /**
-     * Constructor that sets all fields at once.
+     * Convenience constructor to create a fully populated Rsvp in one step.
      */
-    public Rsvp(long id, long eventId, long attendeeId, RsvpStatus status) {
+    public Rsvp(long id, Event event, Attendee attendee, RsvpStatus status, String notes) {
         this.id = id;
-        this.eventId = eventId;
-        this.attendeeId = attendeeId;
+        this.event = event;
+        this.attendee = attendee;
         this.status = status;
+        this.notes = notes;
     }
 
-    // Getters and setters
+    // ---------------- Getters and setters ----------------
 
     public long getId() {
         return id;
@@ -43,20 +61,20 @@ public class Rsvp {
         this.id = id;
     }
 
-    public long getEventId() {
-        return eventId;
+    public Event getEvent() {
+        return event;
     }
 
-    public void setEventId(long eventId) {
-        this.eventId = eventId;
+    public void setEvent(Event event) {
+        this.event = event;
     }
 
-    public long getAttendeeId() {
-        return attendeeId;
+    public Attendee getAttendee() {
+        return attendee;
     }
 
-    public void setAttendeeId(long attendeeId) {
-        this.attendeeId = attendeeId;
+    public void setAttendee(Attendee attendee) {
+        this.attendee = attendee;
     }
 
     public RsvpStatus getStatus() {
@@ -65,5 +83,13 @@ public class Rsvp {
 
     public void setStatus(RsvpStatus status) {
         this.status = status;
+    }
+
+    public String getNotes() {
+        return notes;
+    }
+
+    public void setNotes(String notes) {
+        this.notes = notes;
     }
 }
